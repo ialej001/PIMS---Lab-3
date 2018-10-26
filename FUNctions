@@ -1,5 +1,5 @@
 # CST 205
-# Authoes: Ivan Alejandre, Alejandro , Matthew Chan, Randy Son
+# Authors: Ivan Alejandre, Alejandro Caicedo, Matthew Chan, Randy Son
 # Lab 3 Picture Manipulation Functions
 
 # ============================================================
@@ -53,8 +53,15 @@ def moreRed():
 def roseColoredGlasses():
   pic = get_pic()
   pixels = getPixels(pic)
-  #for x in picPixels
-    
+  for x in pixels:
+    r = getRed(x)
+    b = getBlue(x)
+    g = getGreen(x)
+    setRed(x, r*1.1)
+    setBlue(x, b*0.8)
+    setGreen(x, g*0.5)
+  repaint(pic)
+  
 # Problem 4
 
 def lightenUp():
@@ -70,6 +77,54 @@ def lightenUp():
   repaint(pic)
   
 # Problem 5
-
+def makeNegative():
+  # get picture and save pixel data
+  pic = get_pic()
+  pixels = getPixels(pic)
+  # invert each pixel
+  for x in pixels:
+    oppositeRed = 255 - getRed(x)
+    oppositeBlue = 255 - getBlue(x)
+    oppositeGreen = 255 - getGreen(x)
+    setRed(x, oppositeRed)
+    setBlue(x, oppositeBlue)
+    setGreen(x, oppositeGreen)
+  # output
+  repaint(pic)
+    
+# Problem 6
+def BnW():
+  pic = get_pic()
+  pixels = getPixels(pic)
+  
+  for x in pixels:
+    redColor = getRed(x)
+    blueColor = getBlue(x)
+    greenColor = getGreen(x)
+    luminance = (redColor+blueColor+greenColor)/3
+    setRed(x, luminance)
+    setBlue(x, luminance)
+    setGreen(x, luminance)
+  
+  repaint(pic)
+  
+def betterBnW():
+  pic = get_pic()
+  pixels = getPixels(pic)
+  
+  for x in pixels:
+    r = getRed(x)
+    r = r*0.299
+    b = getBlue(x)
+    b = b*0.587
+    g = getGreen(x)
+    g = g*0.114
+    luminance = (r+b+g)/3
+    setRed(x, luminance)
+    setBlue(x, luminance)
+    setGreen(x, luminance)
+  
+  repaint(pic)
+  
   
   
