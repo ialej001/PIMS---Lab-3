@@ -1,0 +1,26 @@
+def get_pic():
+  return makePicture(pickAFile())
+  
+def pic_prep():
+  pic = get_pic()
+  pixels = getPixels(pic)
+  return pixels
+
+def lessRed(p):
+  p = p/100.0
+  picPixels = pic_prep()
+  print(p)
+  for x in picPixels:
+    r = getRed(x)
+    setRed(x, r*p)
+  repaint(pic)
+  
+def halfRed():
+   pic_prep()
+   percentage = input("From 0-100, what percentage do you wish to reduce the red pixel value: ")
+   lessRed(percentage)
+   repaint(pic)
+
+def roseColoredGlasses():
+  picPixels = pic_prep()
+ # for x in picPixels
