@@ -67,9 +67,9 @@ def roseColoredGlasses():
   pic = get_pic()
   pixels = getPixels(pic)
   for eachPix in pixels:
-    newRed = getRed(x) * 1.1
-    newBlue = getBlue(x) * 0.8
-    newGreen = getGreen(x) * 0.5
+    newRed = getRed(eachPix) * 1.1
+    newBlue = getBlue(eachPix) * 0.8
+    newGreen = getGreen(eachPix) * 0.5
     
     # Since the red value is the only value being multiplied by a value greater than 1,
     # we need to implement a ceiling on that value
