@@ -20,26 +20,26 @@ def noBlue():
 # Problem 1
 
 # function requires a parameter of an percentage integer.
-def lessRed(p):
+def lessRed(percLessRed):
   # convert integer to decimal version of percentage
-  p = p/100.0
+  percLessRed = percLessRed/100.0
+  if percLessRed == 0:
+    pic = get_pic()
+    return
   # save data passed from function
   pic = get_pic()
   pixels = getPixels(pic)
   # for each pixel, save red value. Then reduce the value of red by user inputted percentage
-  for x in pixels:
-    r = getRed(x)
-    setRed(x, r*p)
+  for eachPix in pixels:
+    pixRedCt = getRed(eachPix)
+    setRed(eachPix, pixRedCt*(1.0 - percLessRed))
   # output the edited picture to the screen
   repaint(pic)
   
 def halfRed():
-  # prompt user for percentage
-  percentage = input("From 0-100, what percentage do you wish to reduce the red pixel value: ")
   # modifty picture
-  lessRed(percentage)
-  # output picture
-  repaint(pic)
+  lessRed(50)
+
 
 # Problem 2
 def moreRed():
